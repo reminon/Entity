@@ -4,6 +4,68 @@
         <name>YeloDebug</name>
     </assembly>
     <members>
+        <member name="T:YeloDebug.Exceptions.ApiException">
+            <summary>
+            Thrown when an YeloDebug API function fails
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.NoConnectionException">
+            <summary>
+            Represents errors that occur when there is no debug connection detected between the xbox and pc.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.ScriptTimeoutException">
+            <summary>
+            Represents errors that occur when a script becomes unresponsive.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.XboxDebugException">
+            <summary>
+            Represents errors that occur within the xbox debugging interface.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.UnsupportedException">
+            <summary>
+            Represents errors that occur when an unsupported method is called.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.MemoryAllocationException">
+            <summary>
+            Represents errors that occur when an xbox memory allocation fails.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Exceptions.HistoryCorruptionException">
+            <summary>
+            Represents errors that occur when a corruption is detected in our history pages.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Util">
+            <summary>
+            Miscellaneous helper functions.
+            </summary>
+        </member>
+        <member name="M:YeloDebug.Util.TimeStampToLocalDateTime(System.UInt32)">
+            <summary>
+            Converts a timestamp to its local DateTime equivalent.
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeloDebug.Util.TimeStampToUniversalDateTime(System.UInt32)">
+            <summary>
+            Converts a timestamp to its universal DateTime equivalent.
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeloDebug.Util.BuildScript(System.String,System.Object[])">
+            <summary>
+            Provides an easy way to modify and inject custom assembly scripts.
+            </summary>
+            <param name="name"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
         <member name="T:YeloDebug.LinkStatus">
             <summary>
             Ethernet link status.
@@ -401,6 +463,226 @@
             Keeps a list of available connections
             </summary>
         </member>
+        <member name="P:YeloDebug.Xbox.Connection">
+            <summary>
+            Gets the main connection used for pc to xbox communication.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Kernel">
+            <summary>
+            Gets the xbox kernel information.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Timeout">
+            <summary>
+            Gets or sets the maximum waiting time given (in milliseconds) for a response.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Connected">
+            <summary>
+            Gets the current connection status known to YeloDebug.  For an actual status update you need to Ping() the xbox.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.DebugIP">
+            <summary>
+            Gets the xbox debug ip address.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.DebugName">
+            <summary>
+            Gets the xbox debug name.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.EnableNotificationSession">
+            <summary>
+            Gets or sets whether or not the notification session will be enabled.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.NotificationListener">
+            <summary>
+            Gets the notification listener registered with the xbox that listens for incoming notification session requests.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.NotificationSession">
+            <summary>
+            Gets the current notification session registered with the xbox.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.NotificationPort">
+            <summary>
+            Gets or sets the xbox notification port.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Notifications">
+            <summary>
+            Gets or sets the list of notifications.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.TitleIP">
+            <summary>
+            Gets the xbox game ip address.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.ProcessID">
+            <summary>
+            Gets the xbox process id.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Modules">
+            <summary>
+            Gets a list of modules loaded by the xbox.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.XbeInfo">
+            <summary>
+            Gets xbox executable information.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.DebugMonitorVersion">
+            <summary>
+            Gets the xbox debug monitor version.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.KernelVersion">
+            <summary>
+            Gets the xbox kernel version.  Note that non-debug kernel build versions are substituted with the build year instead.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.HardDriveKey">
+            <summary>
+            Gets the xbox hard drive key.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.EEPROMKey">
+            <summary>
+            Gets the xbox EEPROM key.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.SignatureKey">
+            <summary>
+            Gets the xbox signature key.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.LanKey">
+            <summary>
+            Gets the xbox lan key.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.AlternateSignatureKeys">
+            <summary>
+            Gets the alternate xbox signature keys.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.HardDriveSerial">
+            <summary>
+            Gets the xbox hard drive serial number.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.HardDriveModel">
+            <summary>
+            Gets the xbox hard drive model.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.SerialNumber">
+            <summary>
+            Gets the xbox serial number.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.MacAddress">
+            <summary>
+            Gets the xbox mac address.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Version">
+            <summary>
+            Gets the xbox version.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.HardwareInfo">
+            <summary>
+            Gets the xbox hardware info.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.VideoEncoderType">
+            <summary>
+            Gets the video encoder type installed on the xbox.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.CPUFrequency">
+            <summary>
+            Gets the xbox processor frequency.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.ProcessorInformation">
+            <summary>
+            Gets the xbox processor information.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.LinkStatus">
+            <summary>
+            Gets the current xbox ethernet link status.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.EEPROM">
+            <summary>
+            Gets the xbox EEPROM.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.LastConnectionUsed">
+            <summary>
+            Gets or sets the last xbox connection used.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.ProductionInfo">
+            <summary>
+            Gets the xbox manufacturer production information.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.AVPack">
+            <summary>
+            Gets the current AV-Pack status.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.SystemTime">
+            <summary>
+            Gets or sets the xbox system time.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.TimePoweredOn">
+            <summary>
+            Gets the amount of time the xbox has been powered on for or the time since its last cold boot.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.MemoryStatistics">
+            <summary>
+            Gets the xbox memory statistics.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.CommittedMemory">
+            <summary>
+            Gets a list of valid xbox memory segments.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.Threads">
+            <summary>
+            Gets a list of xbox threads.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.CPUTemperature">
+            <summary>
+            Gets the xbox CPU temperature in degrees celsius.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.GPUTemperature">
+            <summary>
+            Gets the xbox GPU temperature in degrees celsius.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.FanSpeed">
+            <summary>
+            Gets or sets the xbox fan speed percentage.
+            </summary>
+        </member>
         <member name="M:YeloDebug.Xbox.#ctor">
             <summary>
             Xbox connection.
@@ -596,6 +878,19 @@
             </summary>
             <param name="data"></param>
         </member>
+        <member name="T:YeloDebug.Xbox.FileStream">
+            <summary>
+            Creates a standard xbox file stream.
+            </summary>
+        </member>
+        <member name="M:YeloDebug.Xbox.FileStream.#ctor(YeloDebug.Xbox,System.String,System.IO.FileMode)">
+            <summary>
+            Creates a new file stream using a client connection to a debug xbox.
+            </summary>
+            <param name="client">Connection to use.</param>
+            <param name="fileName">Name of the file to expose stream to.</param>
+            <param name="mode">File create disposition.</param>
+        </member>
         <member name="M:YeloDebug.Xbox.ReadFilePartial(System.String,System.Int32,System.Byte[]@,System.Int32,System.Int32@)">
             <summary>
             Dont use this, higher-level methods are available.  Use FileStream instead.
@@ -763,6 +1058,17 @@
             Unmounts the specified drive.
             </summary>
             <param name="drive">Drive letter.</param>
+        </member>
+        <member name="T:YeloDebug.Xbox.MemoryStream">
+            <summary>
+            Creates a standard xbox memory stream.
+            </summary>
+        </member>
+        <member name="M:YeloDebug.Xbox.MemoryStream.#ctor(YeloDebug.Xbox)">
+            <summary>
+            Creates a new memory stream using a client connection to a debug xbox.
+            </summary>
+            <param name="client">Connection to use.</param>
         </member>
         <member name="F:YeloDebug.Xbox.memoryStream">
             <summary>
@@ -1159,6 +1465,11 @@
             will sync after each memory allocation or release.
             </summary>
         </member>
+        <member name="P:YeloDebug.Xbox.AllocationTableSyncing">
+            <summary>
+            Gets or sets whether or not allocation table will be kept in sync with the xbox.
+            </summary>
+        </member>
         <member name="M:YeloDebug.Xbox.LoadAllocationTable">
             <summary>
             Reads the allocation table from the xbox.
@@ -1325,6 +1636,21 @@
             <param name="size">Page count.</param>
             <returns></returns>
         </member>
+        <member name="P:YeloDebug.Xbox.ScratchBuffer">
+            <summary>
+            Gets the address of the buffer automatically allocated for temporary storage in xbox memory.
+            </summary>
+        </member>
+        <member name="P:YeloDebug.Xbox.ScratchBufferSize">
+            <summary>
+            Gets the size of the temporary buffer allocated on the xbox.
+            </summary>
+        </member>
+        <member name="T:YeloDebug.Xbox.History">
+            <summary>
+            Keeps track of history addresses
+            </summary>
+        </member>
         <member name="M:YeloDebug.Xbox.InitializeHistory">
             <summary>
             Initializes the history page.
@@ -1385,297 +1711,6 @@
             <param name="port">Controller port. [0-3]</param>
             <param name="input">Gamepad input.</param>
         </member>
-        <member name="P:YeloDebug.Xbox.Connection">
-            <summary>
-            Gets the main connection used for pc to xbox communication.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Kernel">
-            <summary>
-            Gets the xbox kernel information.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Timeout">
-            <summary>
-            Gets or sets the maximum waiting time given (in milliseconds) for a response.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Connected">
-            <summary>
-            Gets the current connection status known to YeloDebug.  For an actual status update you need to Ping() the xbox.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.DebugIP">
-            <summary>
-            Gets the xbox debug ip address.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.DebugName">
-            <summary>
-            Gets the xbox debug name.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.EnableNotificationSession">
-            <summary>
-            Gets or sets whether or not the notification session will be enabled.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.NotificationListener">
-            <summary>
-            Gets the notification listener registered with the xbox that listens for incoming notification session requests.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.NotificationSession">
-            <summary>
-            Gets the current notification session registered with the xbox.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.NotificationPort">
-            <summary>
-            Gets or sets the xbox notification port.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Notifications">
-            <summary>
-            Gets or sets the list of notifications.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.TitleIP">
-            <summary>
-            Gets the xbox game ip address.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.ProcessID">
-            <summary>
-            Gets the xbox process id.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Modules">
-            <summary>
-            Gets a list of modules loaded by the xbox.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.XbeInfo">
-            <summary>
-            Gets xbox executable information.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.DebugMonitorVersion">
-            <summary>
-            Gets the xbox debug monitor version.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.KernelVersion">
-            <summary>
-            Gets the xbox kernel version.  Note that non-debug kernel build versions are substituted with the build year instead.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.HardDriveKey">
-            <summary>
-            Gets the xbox hard drive key.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.EEPROMKey">
-            <summary>
-            Gets the xbox EEPROM key.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.SignatureKey">
-            <summary>
-            Gets the xbox signature key.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.LanKey">
-            <summary>
-            Gets the xbox lan key.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.AlternateSignatureKeys">
-            <summary>
-            Gets the alternate xbox signature keys.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.HardDriveSerial">
-            <summary>
-            Gets the xbox hard drive serial number.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.HardDriveModel">
-            <summary>
-            Gets the xbox hard drive model.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.SerialNumber">
-            <summary>
-            Gets the xbox serial number.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.MacAddress">
-            <summary>
-            Gets the xbox mac address.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Version">
-            <summary>
-            Gets the xbox version.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.HardwareInfo">
-            <summary>
-            Gets the xbox hardware info.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.VideoEncoderType">
-            <summary>
-            Gets the video encoder type installed on the xbox.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.CPUFrequency">
-            <summary>
-            Gets the xbox processor frequency.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.ProcessorInformation">
-            <summary>
-            Gets the xbox processor information.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.LinkStatus">
-            <summary>
-            Gets the current xbox ethernet link status.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.EEPROM">
-            <summary>
-            Gets the xbox EEPROM.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.LastConnectionUsed">
-            <summary>
-            Gets or sets the last xbox connection used.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.ProductionInfo">
-            <summary>
-            Gets the xbox manufacturer production information.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.AVPack">
-            <summary>
-            Gets the current AV-Pack status.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.SystemTime">
-            <summary>
-            Gets or sets the xbox system time.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.TimePoweredOn">
-            <summary>
-            Gets the amount of time the xbox has been powered on for or the time since its last cold boot.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.MemoryStatistics">
-            <summary>
-            Gets the xbox memory statistics.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.CommittedMemory">
-            <summary>
-            Gets a list of valid xbox memory segments.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.Threads">
-            <summary>
-            Gets a list of xbox threads.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.CPUTemperature">
-            <summary>
-            Gets the xbox CPU temperature in degrees celsius.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.GPUTemperature">
-            <summary>
-            Gets the xbox GPU temperature in degrees celsius.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.FanSpeed">
-            <summary>
-            Gets or sets the xbox fan speed percentage.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.AllocationTableSyncing">
-            <summary>
-            Gets or sets whether or not allocation table will be kept in sync with the xbox.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.ScratchBuffer">
-            <summary>
-            Gets the address of the buffer automatically allocated for temporary storage in xbox memory.
-            </summary>
-        </member>
-        <member name="P:YeloDebug.Xbox.ScratchBufferSize">
-            <summary>
-            Gets the size of the temporary buffer allocated on the xbox.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Xbox.FileStream">
-            <summary>
-            Creates a standard xbox file stream.
-            </summary>
-        </member>
-        <member name="M:YeloDebug.Xbox.FileStream.#ctor(YeloDebug.Xbox,System.String,System.IO.FileMode)">
-            <summary>
-            Creates a new file stream using a client connection to a debug xbox.
-            </summary>
-            <param name="client">Connection to use.</param>
-            <param name="fileName">Name of the file to expose stream to.</param>
-            <param name="mode">File create disposition.</param>
-        </member>
-        <member name="T:YeloDebug.Xbox.MemoryStream">
-            <summary>
-            Creates a standard xbox memory stream.
-            </summary>
-        </member>
-        <member name="M:YeloDebug.Xbox.MemoryStream.#ctor(YeloDebug.Xbox)">
-            <summary>
-            Creates a new memory stream using a client connection to a debug xbox.
-            </summary>
-            <param name="client">Connection to use.</param>
-        </member>
-        <member name="T:YeloDebug.Xbox.History">
-            <summary>
-            Keeps track of history addresses
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Util">
-            <summary>
-            Miscellaneous helper functions.
-            </summary>
-        </member>
-        <member name="M:YeloDebug.Util.TimeStampToLocalDateTime(System.UInt32)">
-            <summary>
-            Converts a timestamp to its local DateTime equivalent.
-            </summary>
-            <param name="timestamp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:YeloDebug.Util.TimeStampToUniversalDateTime(System.UInt32)">
-            <summary>
-            Converts a timestamp to its universal DateTime equivalent.
-            </summary>
-            <param name="timestamp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:YeloDebug.Util.BuildScript(System.String,System.Object[])">
-            <summary>
-            Provides an easy way to modify and inject custom assembly scripts.
-            </summary>
-            <param name="name"></param>
-            <param name="args"></param>
-            <returns></returns>
-        </member>
         <member name="T:YeloDebug.XboxKernel">
             <summary>
             Xbox kernel information.
@@ -1706,41 +1741,6 @@
         <member name="M:YeloDebug.XboxKernel.InitializeKernelExports">
             <summary>
             Initializes kernel exports with actual addresses.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.ApiException">
-            <summary>
-            Thrown when an YeloDebug API function fails
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.NoConnectionException">
-            <summary>
-            Represents errors that occur when there is no debug connection detected between the xbox and pc.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.ScriptTimeoutException">
-            <summary>
-            Represents errors that occur when a script becomes unresponsive.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.XboxDebugException">
-            <summary>
-            Represents errors that occur within the xbox debugging interface.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.UnsupportedException">
-            <summary>
-            Represents errors that occur when an unsupported method is called.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.MemoryAllocationException">
-            <summary>
-            Represents errors that occur when an xbox memory allocation fails.
-            </summary>
-        </member>
-        <member name="T:YeloDebug.Exceptions.HistoryCorruptionException">
-            <summary>
-            Represents errors that occur when a corruption is detected in our history pages.
             </summary>
         </member>
     </members>

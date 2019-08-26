@@ -24,3 +24,28 @@ C:\GAMES\XBox\Halo2\Programs\Source\Entity 2.1 Source\HaloMap\bin\x86\Debug\Yelo
 C:\GAMES\XBox\Halo2\Programs\Source\Entity 2.1 Source\HaloMap\bin\x86\Debug\YeloDebug.pdb
 C:\GAMES\XBox\Halo2\Programs\Source\Entity 2.1 Source\HaloMap\bin\x86\Debug\YeloDebug.xml
 C:\GAMES\XBox\Halo2\Programs\Source\Entity 2.1 Source\HaloMap\obj\x86\Debug\HaloMap.Properties.Resources.resources
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\RealTimeHalo\RthDLL.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\HaloMap.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\HaloMap.pdb
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Globals.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.Direct3D.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.Direct3DX.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.DirectInput.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\XDevkit.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\YeloDebug.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Globals.pdb
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.xml
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.Direct3D.xml
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.Direct3DX.xml
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\Microsoft.DirectX.DirectInput.xml
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\YeloDebug.pdb
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\bin\x86\Debug\YeloDebug.xml
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.csprojAssemblyReference.cache
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\entity.EntityPlugin.resources
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.Properties.Resources.resources
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.csproj.GenerateResource.cache
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.csproj.CoreCompileInputs.cache
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.csproj.CopyComplete
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.dll
+C:\Users\NEIEP Student\source\repos\Entity\HaloMap\obj\x86\Debug\HaloMap.pdb
